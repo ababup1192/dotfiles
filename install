@@ -2,7 +2,7 @@
 
 DOTPATH=~/.dotfiles; export DOTPATH
 
-tarball="https://github.com/ababup1192/dotfiles/archive/master.tar.gz"
+tarball="https://codeload.github.com/ababup1192/dotfiles/tar.gz/master"
 echo "Download dotfiles"
-curl -L "$tarball"
+curl "$tarball" | tar zx
 
