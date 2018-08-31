@@ -1,1 +1,1 @@
-echo hello
+export PATH=$PATH:$HOME/bin
