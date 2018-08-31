@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DOTPATH=~/.dotfiles; export DOTPATH
+
+tarball="https://github.com/ababup1192/dotfiles/archive/master.tar.gz"
+curl -L "$tarball"
+
