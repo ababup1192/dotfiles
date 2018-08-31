@@ -2,9 +2,21 @@
 
 DOTPATH=~/.dotfiles; export DOTPATH
 
-tarball="https://codeload.github.com/ababup1192/dotfiles/tar.gz/master"
-echo "Download dotfiles"
-curl "$tarball" | tar zx
+dotfiles_download() {
+    local tarball="https://codeload.github.com/ababup1192/dotfiles/tar.gz/master"
+    echo "Download dotfiles"
+    curl "$tarball" | tar zx
+    mv -f dotfiles-master "$DOTPATH"
+}
 
-mv -f dotfiles-master "$DOTPATH"
-cd "$DOTPATH"
+dotfiles_deploy() {
+    cd "$DOTPATH"
+    make deploy
+}
+
+dotfiles_install() {
+    dotfiles_download &&
+        dotfiles_deploy
+}
+
+dotfiles_install
