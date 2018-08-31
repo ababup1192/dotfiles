@@ -6,3 +6,5 @@ tarball="https://codeload.github.com/ababup1192/dotfiles/tar.gz/master"
 echo "Download dotfiles"
 curl "$tarball" | tar zx
 
+mv -f dotfiles-master "$DOTPATH"
+cd "$DOTPATH"
