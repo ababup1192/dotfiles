@@ -8,6 +8,11 @@ dotfiles_download() {
     git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
 }
 
+zplug_download() {
+    ZPLUG_HOME=~/.zplug; export ZPLUG_HOME
+    git clone https://github.com/zplug/zplug $ZPLUG_HOME
+}
+
 dotfiles_deploy() {
     cd "$DOTPATH"
     make deploy
@@ -15,6 +20,7 @@ dotfiles_deploy() {
 
 dotfiles_install() {
     dotfiles_download &&
+        zplug_download &&
         dotfiles_deploy
 }
 
