@@ -93,3 +93,9 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load --verbose
+
+# Apply theme
+# autoload -Uz promptinit
+# promptinit
+# prompt steeef
+
