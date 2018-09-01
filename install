@@ -1,12 +1,11 @@
 #!/bin/bash
 
+DOTFILES_GITHUB="https://github.com/ababup1192/dotfiles.git"; export DOTFILES_GITHUB
 DOTPATH=~/.dotfiles; export DOTPATH
 
 dotfiles_download() {
-    local tarball="https://codeload.github.com/ababup1192/dotfiles/tar.gz/master"
     echo "Download dotfiles"
-    curl "$tarball" | tar zx
-    mv -f dotfiles-master "$DOTPATH"
+    git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
 }
 
 dotfiles_deploy() {
