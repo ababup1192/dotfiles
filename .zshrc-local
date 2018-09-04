@@ -10,7 +10,6 @@ PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 ### Environment Variable ###
 
-export EDITOR=vim
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -50,14 +49,9 @@ git-push-current() {
     git push $(git symbolic-ref --short HEAD)
 }
 
-### Lamguage ###
-
-# Ruby
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-
 ### zsh config ###
 
+export EDITOR=vim
 setopt auto_pushd
 
 ## history
@@ -79,6 +73,11 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
+
+### Lamguage ###
+
+# Ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Launch directory ###
 
