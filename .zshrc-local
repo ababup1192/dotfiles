@@ -42,11 +42,11 @@ git-push() {
   local branches branch
   branches=$(git branch -vv) &&
     branch=$(echo "$branches" | fzf +m) &&
-  git push $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  git push origin $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
 git-push-current() {
-    git push $(git symbolic-ref --short HEAD)
+    git push origin $(git symbolic-ref --short HEAD)
 }
 
 ### zsh config ###
