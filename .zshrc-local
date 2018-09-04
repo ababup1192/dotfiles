@@ -1,4 +1,37 @@
-# Theme
+### Theme ###
 autoload -Uz promptinit
 promptinit
 prompt steeef
+
+### PATH ###
+PATH=$PATH:$HOME/.nodebrew/current/bin
+PATH=$PATH:$HOME/.rbenv/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
+export GOBIN=$GOPATH/bin
+
+### Environment Variable ###
+
+export EDITOR=vim
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+### alias settings ###
+
+if type exa > /dev/null 2>&1; then
+    alias ls='exa -F'
+else
+    alias ls='ls -FGH'
+fi
+
+alias rm='rm -i'
+alias grep='grep --color=auto'
+alias javac='javac -J-Dfile.encoding=UTF-8'
+alias java='java -Dfile.encoding=UTF-8'
+alias vi='vim'
+
+### Lamguage ###
+
+# Ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+cd ~/Desktop
