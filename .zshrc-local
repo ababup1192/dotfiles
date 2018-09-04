@@ -64,7 +64,6 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt EXTENDED_HISTORY
 setopt share_history
-source $ZPLUG_HOME/repos/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 function select-history() {

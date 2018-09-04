@@ -68,6 +68,8 @@ zplug "stedolan/jq", \
     rename-to:jq
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
+
+
 # Note: To specify the order in which packages should be loaded, use the defer
 #       tag described in the next section
 
