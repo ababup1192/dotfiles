@@ -6,14 +6,14 @@ prompt steeef
 ### PATH ###
 PATH=$PATH:$HOME/.nodebrew/current/bin
 PATH=$PATH:$HOME/.rbenv/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
-export GOBIN=$GOPATH/bin
+PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
 
 ### Environment Variable ###
 
 export EDITOR=vim
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 
 ### alias settings ###
 
@@ -49,8 +49,6 @@ git-push() {
 git-push-current() {
     git push $(git symbolic-ref --short HEAD)
 }
-
-
 
 ### Lamguage ###
 
