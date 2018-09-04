@@ -58,15 +58,27 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### zsh config ###
 
+setopt auto_pushd
+
 ## history
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
 setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
 setopt EXTENDED_HISTORY
+setopt share_history
 source $ZPLUG_HOME/repos/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
 
 ### Launch directory ###
 
