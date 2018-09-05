@@ -10,9 +10,6 @@ zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
 # Can manage everything e.g., other person's zshrc
 zplug "tcnksm/docker-alias", use:zshrc
 
-# Disable updates using the "frozen" tag
-zplug "k4rthik/git-cal", as:command, frozen:1
-
 # Grab binaries from GitHub Releases
 # and rename with the "rename-to:" tag
 zplug "junegunn/fzf-bin", \
@@ -28,7 +25,7 @@ zplug "plugins/git",   from:oh-my-zsh
 zplug "modules/prompt", from:prezto
 
 # Load if "if" tag returns true
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 
 # Run a command after a plugin is installed/updated
 # Provided, it requires to set the variable like the following:
@@ -40,7 +37,7 @@ zplug "jhawthorn/fzy", \
 
 # Supports checking out a specific branch/tag/commit
 zplug "b4b4r07/enhancd", use:"init.sh"
-zplug "mollifier/anyframe", at:4c23cb60
+# zplug "mollifier/anyframe", at:4c23cb60
 
 # Can manage gist file just like other packages
 zplug "b4b4r07/79ee61f7c140c63d2786", \
@@ -53,12 +50,6 @@ zplug "b4b4r07/hello_bitbucket", \
     from:bitbucket, \
     as:command, \
     use:"*.sh"
-
-# Rename a command with the string captured with `use` tag
-zplug "b4b4r07/httpstat", \
-    as:command, \
-    use:'(*).sh', \
-    rename-to:'$1'
 
 # Group dependencies
 # Load "emoji-cli" if "jq" is installed in this example
@@ -83,7 +74,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "~/.zsh", from:local
 
 # Load theme file
-zplug 'dracula/zsh', as:theme
+# zplug 'dracula/zsh', as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
