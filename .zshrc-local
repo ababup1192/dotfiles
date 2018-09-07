@@ -17,11 +17,13 @@ export GOBIN=$GOPATH/bin
 
 ### alias settings ###
 
-if type exa > /dev/null 2>&1; then
+if witch exa > /dev/null 2>&1; then
     alias ls='exa -F'
 else
     alias ls='ls -FGH'
 fi
+
+which bat > /dev/null 2>&1 && alias cat='bat'
 
 alias rm='rm -i'
 alias grep='grep --color=auto'
