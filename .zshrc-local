@@ -17,7 +17,7 @@ export GOBIN=$GOPATH/bin
 
 ### alias settings ###
 
-if witch exa > /dev/null 2>&1; then
+if which exa > /dev/null 2>&1; then
     alias ls='exa -F'
 else
     alias ls='ls -FGH'
