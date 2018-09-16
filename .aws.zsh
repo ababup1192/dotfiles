@@ -5,10 +5,12 @@ function aws-profile() {
 }
 
 function aws-log-events() {
-	BUFFER1=$(aws logs describe-log-groups | jq '.logGroups[].logGroupName' | sed 's/\"//g' | fzf --no-sort +m --query "$LBUFFER" --prompt="AWS_LOG_GROUP > ")
-	echo "[Prealse Enter] You choose $BUFFER1" && read
-	BUFFER2=$(aws logs describe-log-streams --log-group-name $BUFFER1 | jq '.logStreams[].logStreamName' | sed 's/\"//g' | fzf --no-sort +m --query "$LBUFFER" --prompt="AWS_LOG_STREAM > ")
-	aws logs get-log-events --log-group-name $BUFFER1 --log-stream-name $BUFFER2 | jq '.events'
+	BUFFER1=$(aws logs describe-log-groups | jq -r '.logGroups[].logGroupName' | fzf --no-sort +m --query "$LBUFFER" --prompt="AWS_LOG_GROUP > ")
+	BUFFER2=$(aws logs describe-log-streams --log-group-name $BUFFER1 | jq '.logStreams[]' | jq '.lastEventTimestamp, .logStreamName' | paste -d " " - -)
+	BUFFER3=$(echo $BUFFER2 | while read t n; do
+		echo "$(date -r $((t / 1000)))" ":" {$n}
+	done | fzf --no-sort +m --query "$LBUFFER" --prompt="AWS_LOG_STREAM > " | cut -d '{' -f 2 | cut -d '}' -f 1 | sed 's/\"//g')
+	aws logs get-log-events --log-group-name $BUFFER1 --log-stream-name $BUFFER3 | jq '.events'
 }
 
 function aws-s3-file-search() {
