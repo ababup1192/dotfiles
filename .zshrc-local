@@ -83,6 +83,9 @@ source $ZPLUG_HOME/repos/zsh-users/zsh-history-substring-search/zsh-history-subs
 # Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# AWS
+source ~/.aws.zsh
+
 ### Load private setting ###
 
 source ~/.zshrc-private
