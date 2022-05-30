@@ -21,7 +21,7 @@ zplug "junegunn/fzf-bin", \
 # Supports oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 
-zplug "natsumisawa/github-convs", use:github.zsh
+zplug "ababup1192/github-convs", use:github.zsh
 
 # Also prezto
 zplug "modules/prompt", from:prezto
