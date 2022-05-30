@@ -8,12 +8,17 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=/usr/local/opt/go/libexec/bin:$GOPATH/bin:$PATH
+export PATH=$VOLTA_HOME/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export DENO_INSTALL="/Users/abab/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 ### Environment Variable ###
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
+export VOLTA_HOME=$HOME/.volta
 
 ### alias settings ###
 
